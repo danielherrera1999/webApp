@@ -42,5 +42,7 @@ luego se realiza el diseño basado a bootstrap
 
 tambien para visualizar se agrega en las rutas los componentes y por ultimo implementa en el componente principal
 
+## SEGUNDO PASO SE REALIZA LOS SERVICIOS DE TRAER LOS PRODUCTOS , GUARDAR UN CART , VISUALIZAR UN CART
+
 
 

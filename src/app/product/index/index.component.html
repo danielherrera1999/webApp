@@ -11,9 +11,9 @@
   </div>
   <hr>
   <div class="row">
-    <div class="col">
-      TABLA
-    </div>
+    <app-card [data]="products"></app-card>
+    <!--<div class="col lg-4 md-4 sm-12 my-2" *ngFor="let item of products">
+      <app-card [image]="item.img" [name]="item.name" [categories]="item.categories"  [description]="item.description" ></app-card>
+    </div>-->
   </div>
-
 </div>

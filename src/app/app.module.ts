@@ -6,17 +6,29 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './product/index/index.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import { FooterComponent } from './widget/footer/footer.component';
+import { HeaderComponent } from './widget/header/header.component';
+import { CardComponent } from './widget/card/card.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './widget/cart/cart.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     WelcomeComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent,
+    CardComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
