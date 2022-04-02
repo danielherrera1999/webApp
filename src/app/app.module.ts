@@ -11,6 +11,8 @@ import { CardComponent } from './widget/card/card.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './widget/cart/cart.component';
+import { PipeFilterModule } from './pipes/pipe-filter.module';
+//import { PipeFilterPipe } from './pipes/pipe-filter.pipe';
 
 
 
@@ -22,13 +24,15 @@ import { CartComponent } from './widget/cart/cart.component';
     FooterComponent,
     HeaderComponent,
     CardComponent,
-    CartComponent
+    CartComponent,
+    //PipeFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    PipeFilterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

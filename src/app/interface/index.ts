@@ -19,3 +19,8 @@ export interface Carts {
   img: string;
   description: string;
 }
+
+export interface Categories{
+  categori_id: number;
+  name: string;
+}

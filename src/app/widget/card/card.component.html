@@ -1,16 +1,67 @@
 <div class="row">
-  <div class="col lg-4 md-4 sm-12 my-2" *ngFor="let item of data">
+  <div class="col">
+    <button type="submit" class="btn btn-success" [disabled]="productsCart.length == 0 ? 'disabled' : null"
+      (click)="cargar()">
+      CARGAR AL CARRITO
+    </button>
+  </div>
+</div>
+<div class="row">
+  <!--<div class="col lg-4 md-4 sm-12 my-2" *ngFor="let item of data">-->
+  <div class="col lg-4 md-4 sm-12 my-2" *ngFor="let item of data | pipeFilter : search : 'name'  ">
     <div class="card" style="width: 20rem;">
-      <img src="{{item.img}}" width="200" height="200" class="card-img-top">
+      <img src="{{item.img}}"
+        class="card-img-top" />
       <div class="card-body">
-        <h5 class="card-title">{{item.name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Categorias: {{item.categories}}</h6>
-        <p class="card-text">{{item.description}}.</p>
-        <a class="btn btn-success" (click)="addCart(item)">ENVIAR AL CARRITO</a>
+        <div class="text-center mt-1">
+          <h4 class="card-title">{{item.name}}</h4>
+          <h6 class="text-primary mb-1 pb-3">Valor: ${{item.price}}</h6>
+        </div>
+
+        <div class="text-center">
+          <div class="p-3 mx-n3 mb-4" style="background-color: #eff1f2;">
+            <h5 class="mb-0">DESCRIPCION</h5>
+          </div>
+
+          <!--<div class="d-flex flex-column mb-4">
+            <span class="h1 mb-0">5.8″</span>
+            <span>Super Retina HD display1</span>
+          </div>-->
+
+          <div class="d-flex flex-column mb-4">
+            <span class="h1 mb-0">
+              <i class="fas fa-camera-retro"></i>
+            </span>
+            <ul class="list-unstyled mb-0">
+              <li aria-hidden="true">—</li>
+              <li>{{item.description}}</li>
+              <li aria-hidden="true">—</li>
+            </ul>
+          </div>
+
+          <div class="p-3 mx-n3 mb-4" style="background-color: #eff1f2;">
+            <h5 class="mb-0">Categorias</h5>
+          </div>
+
+          <div class="d-flex flex-column mb-4 lead">
+            <span class="mb-2">{{item.categories}}</span>
+            <span style="color: transparent;">0</span>
+          </div>
+        </div>
+
+        <div class="d-flex flex-row">
+          <div class="form-check">
+            <label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                (change)="onChange($event, item)"
+              >
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary flex-fill ms-1" (click)="addCart(item)">Agregar</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-

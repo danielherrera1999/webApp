@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import { Carts } from 'src/app/interface/product';
+import { Carts } from 'src/app/interface';
 import { IndexService } from 'src/app/service/index.service';
 
 
@@ -23,6 +23,12 @@ export class CartComponent implements OnInit {
     .subscribe((data: Carts[])=>{
       this.carts = data;
     })
+  }
+
+  clear(){
+    //console.log('funcion')
+    this.productService.clearCart();
+    this.carts = [];
   }
 
 }

@@ -1,19 +1,40 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col lg-12 md-12 sm-12 text-center">
       <h1 class="title">PRODUCTOS</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      FILTROS
+    <div class="col lg-4 md-4 sm-12">
+      <div class="form-group">
+          <input type="text"  class="form-control" [(ngModel)]="searchProduct" (keyup)="search($event)"  placeholder="Buscar por Producto">
+      </div>
+    </div>
+    <div class="col lg-4 md-4 sm-12">
+      <div class="form-group">
+        <select class="form-select form-control" aria-label="Elegir Categoria" [(ngModel)]="searchCategory" (change)="select($event)">
+          <option selected>por defecto</option>
+          <option
+              *ngFor="let option of categories; index as i"
+              value="{{option.categori_id}}"
+          >
+              {{ option.name }}
+          </option>
+          <!--<option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>-->
+        </select>
+      </div>
+    </div>
+    <div class="col lg-4 md-4 sm-12">
+      <div class="form-group">
+        <label for="customRange1" class="form-label">Rango de Precio de Mayor a Menor</label>
+        <input type="range" class="form-range" id="customRange1">
+      </div>
     </div>
   </div>
   <hr>
   <div class="row">
-    <app-card [data]="products"></app-card>
-    <!--<div class="col lg-4 md-4 sm-12 my-2" *ngFor="let item of products">
-      <app-card [image]="item.img" [name]="item.name" [categories]="item.categories"  [description]="item.description" ></app-card>
-    </div>-->
+    <app-card [data]="products" [search]="searchProduct" [searchCategory]="searchCategory"></app-card>
   </div>
 </div>
